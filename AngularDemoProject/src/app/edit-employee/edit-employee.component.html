@@ -1,0 +1,33 @@
+<div class="example-container mat-elevation-z8">
+    <h2>Coronavirus Edit Cases</h2>
+    <div class="example-loading-shade"
+          *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" (click)="employeeDetails()"><mat-icon>info</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="employeeForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName="name"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!employeeForm.get('name').valid && employeeForm.get('name').touched">Please enter Name</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Company</mat-label>
+            <input matInput placeholder="Company" formControlName="cmpName"
+                    [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!employeeForm.get('name').valid && employeeForm.get('name').touched">Please enter Company Name</span>
+            </mat-error>
+          </mat-form-field>
+        <div class="button-row">
+          <button type="submit" [disabled]="!employeeForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+        </div>
+      </form>
+    </mat-card>
+  </div>

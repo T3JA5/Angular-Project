@@ -1,0 +1,25 @@
+<div class="example-container mat-elevation-z8">
+    <h2>Corona Virus Cases Details</h2>
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/employee']"><mat-icon>list</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title><h2>{{employee.name}}</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <dl>
+          <dt>Company:</dt>
+          <dd>{{employee.cmpName}}</dd>
+        </dl>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-flat-button color="primary" [routerLink]="['/edit-employee', employee._id]"><mat-icon>edit</mat-icon> Employee</a>
+        <a mat-flat-button color="warn" (click)="deleteEmployee(employee._id)"><mat-icon>delete</mat-icon> Employee</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
